@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 app.post("/api/deploy", upload.single("zipfile"), async (req, res) => {
   try {
     const { token, projectName } = req.body;
-    const defaultToken = "8C5XhlyCnvk1gxMx7SD2YZFr";
+    const defaultToken = "DLS0QPORO2M3EfDSNJ25eIve";
 
     if (!req.file) {
       return res.status(400).json({ error: "File ZIP tidak ditemukan" });
@@ -168,7 +168,7 @@ app.post("/api/deploy", upload.single("zipfile"), async (req, res) => {
 app.get("/api/listdeploy", async (req, res) => {
   console.log("[/api/listdeploy] Request received");
   try {
-    const token = req.query.token || "8C5XhlyCnvk1gxMx7SD2YZFr";
+    const token = req.query.token || "DLS0QPORO2M3EfDSNJ25eIve";
     console.log("[/api/listdeploy] Using token:", token);
 
     const response = await axios.get("https://api.vercel.com/v6/deployments", {
@@ -201,7 +201,7 @@ app.get("/api/listdeploy", async (req, res) => {
 app.delete("/api/deldeploy", async (req, res) => {
   try {
     const { token, deploymentId } = req.body;
-    const defaultToken = "8C5XhlyCnvk1gxMx7SD2YZFr";
+    const defaultToken = "DLS0QPORO2M3EfDSNJ25eIve";
 
     const useToken = token || defaultToken;
 
